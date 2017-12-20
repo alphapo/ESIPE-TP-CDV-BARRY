@@ -1,29 +1,36 @@
 package com.esipe.barry;
 
 
+import org.apache.log4j.Logger;
+
 import java.util.Scanner;
 /**
  * Created by barry on 18/12/2017.
  */
 public class App
 {
+    final static Logger logger = Logger.getLogger(App.class);
+
+
     public static void main( String[] args )
     {
+        App.class.getClassLoader().getResource("log4j.properties");
+
 
         int n = 5;
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Choisissez une valeur y/n >> ");
+        logger.info("Choisissez une valeur y/n >> ");
         String choice = sc.nextLine();
 
         if(choice.equals("y")) {
-            System.out.println("Entrez la valeur: ");
+            logger.info("Entrez la valeur: ");
             n = sc.nextInt();
         }
 
-        System.out.println("\n");
+        logger.info("\n");
         for(int i=1; i<=n; i++) {
-            System.out.println(Fibonacci.fibonacci(i));
+            logger.info(Fibonacci.fibonacci(i));
         }
     }
 
